@@ -1,6 +1,6 @@
 package com.company;
 
-public class humptyDumpty {
+public class HumptyDumpty {
     public static void main(String[] args) {
 
         String line1 = "All the king's horses and all the king's men" ;

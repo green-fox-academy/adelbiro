@@ -1,6 +1,6 @@
 package com.company;
 
-public class helloMe {
+public class HelloMe {
 
     public static void main(String[] args) {
 
