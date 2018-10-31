@@ -14,3 +14,6 @@ public class Factorio {
 
     }
 }
+
+
+// MIÉRT NEM MÚKÖDÖTT AZ EREDETI PRÓBÁLKOZÁSOM?
