@@ -1,4 +1,5 @@
 package com.company;
+import java.util.Scanner;
 // - Create a two dimensional array
 //   which can contain the different shades of specified colors
 // - In `colors[0]` store the shades of green:
@@ -10,5 +11,7 @@ package com.company;
 public class Colors {
     public static void main(String[] args) {
 
+
     }
 }
+
