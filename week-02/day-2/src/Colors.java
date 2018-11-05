@@ -11,13 +11,19 @@ import java.util.Scanner;
 // - In `colors[2]` store the shades of pink:
 //   `"orchid", "violet", "pink", "hot pink"`
 public class Colors {
+    public static void print(String[][] input) {
+        for (String[] rows: input) {
+            System.out.println(Arrays.toString(rows));
+        }
+    }
+
     public static void main(String[] args) {
         String[] colors1 = {"lime", "forest green", "olive", "pale green", "spring green"};
         String[] colors2 = {"orange red", "red", "tomato"};
         String[] colors3 = {"orchid", "violet", "pink", "hot pink"};
+//        String[][] colors = {{colors1}, {colors2},  {colors3}}; // why does not work?
         String[][] colors = {{Arrays.toString(colors1)}, {Arrays.toString(colors2)},  {Arrays.toString(colors3)}};
-        System.out.println(Arrays.deepToString(colors));
-
+        print(colors);
     }
 }
 
