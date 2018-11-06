@@ -11,10 +11,7 @@ public class TakesLonger {
         String quotePart1 = quote.substring(0,(indexOfYou));
         String quotePart2 = quote.substring(indexOfYou-1);// to include the space before "you"
 
-        String fullQuote = quotePart1 + missingPart +quotePart2;
-
-
-
+        String fullQuote = quotePart1 + missingPart + quotePart2;
         System.out.println(fullQuote);
     }
 }
