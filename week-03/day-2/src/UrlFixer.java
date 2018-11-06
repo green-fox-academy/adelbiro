@@ -13,6 +13,14 @@ public class UrlFixer {
         System.out.println(url);
 
 
-        
+        // Solving it another way
+
+        String urlB = "https//www.reddit.com/r/nevertellmethebots";
+        String urlB1 = urlB.substring(0,4);
+        urlB1 = urlB1 + ":";
+        String urlB2 = urlB.substring(5);
+        urlB = urlB1.concat(urlB2);
+        System.out.println(urlB.replace("bots", "odds"));
+
     }
 }
