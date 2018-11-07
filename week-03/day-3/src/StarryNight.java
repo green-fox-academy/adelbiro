@@ -4,17 +4,19 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class GoToCenter {
-    public static void goToCenter(Graphics graphics, int x, int y){
-        graphics.drawLine(x, y, WIDTH/2, HEIGHT/2 );
-    }
+public class StarryNight {
     public static void mainDraw(Graphics graphics) {
-        // Create a line drawing function that takes 2 parameters:
-        // The x and y coordinates of the line's starting point
-        // and draws a line from that point to the center of the canvas.
-        // Draw 3 lines with that function. Use loop for that.
-        for (int i = 0; i < 3; i++) {
-            goToCenter(graphics,(int)(Math.random() * 320), (int)(Math.random() * 320));
+        // Draw the night sky:
+        //  - The background should be black
+        //  - The stars can be small squares
+        //  - The stars should have random positions on the canvas
+        //  - The stars should have random color (some shade of grey)
+        graphics.setColor(Color.BLACK);
+        graphics.fillRect(0, 0, HEIGHT, WIDTH);
+        for (int i = 0; i < 100; i++) {
+            int color = (int)(Math.random() * 255);
+            graphics.setColor(new Color(color, color, color));
+            graphics.fillRect((int) (Math.random() * 320), (int)(Math.random() * 320 ), 3, 3);
         }
     }
 
