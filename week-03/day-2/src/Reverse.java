@@ -9,9 +9,9 @@ public class Reverse {
         System.out.println(reverse(reversed));
     }
     public static String reverse (String input) {
-        String output = input;
+        String output = "";
         for (int i = 1; i < input.length(); i++) {
-            output.replace(output.charAt(i), input.charAt(input.length() - i)) ;
+            output = output + input.charAt(input.length() - i);
         }
         return output;
     }
