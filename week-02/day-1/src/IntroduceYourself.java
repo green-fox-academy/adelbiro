@@ -17,9 +17,6 @@ public class IntroduceYourself {
         String myName = "Adel Biro";
         int myAge = 25;
         double myHeight = 1.62;
-        System.out.println(myName);
-        System.out.println(myAge);
-        System.out.println(myHeight);
-
+        System.out.println(myName + "\n" + myAge + "\n" + myHeight);
     }
 }
