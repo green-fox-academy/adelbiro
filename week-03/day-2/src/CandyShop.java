@@ -2,7 +2,14 @@ import java.util.ArrayList;
 
 public class CandyShop {
     public static ArrayList<Object> sweets (ArrayList<Object> inputArray) {
-
+        if (inputArray.contains(2)== true){
+            int i = inputArray.indexOf(2);
+            inputArray.set(i, "Croissant");
+        }
+        if (inputArray.contains(false) == true) {
+            int j = inputArray.indexOf(false);
+            inputArray.set(j, "Ice cream");
+        }
         return inputArray;
     }
     public static void main(String... args){
