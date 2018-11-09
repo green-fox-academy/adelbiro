@@ -11,15 +11,13 @@ public class EnvelopeStar {
     }
 
     public static void mainDraw(Graphics graphics) {
-
-        int stepSize = WIDTH/2/ 15;
-        System.out.println(stepSize);
-
-        for (int i = 1; i <= 16 ; i++) {
+        int numberOfLines = 20;
+        int stepSize = WIDTH/2/20;
+        for (int i = 1; i <= numberOfLines ; i++) {
             drawLines(graphics, WIDTH/2, HEIGHT/2 - (i*stepSize), (i*stepSize), HEIGHT/2); //left up
-            drawLines(graphics, WIDTH/2, i*stepSize, WIDTH/2 + (i*stepSize), HEIGHT/2); // right up
-            drawLines(graphics, WIDTH/2, HEIGHT/2 + (i * stepSize),i*stepSize, HEIGHT/2);
-            drawLines(graphics, WIDTH/2,  HEIGHT - (i* stepSize), WIDTH/2 + (i* stepSize), HEIGHT/2);
+            drawLines(graphics, WIDTH/2, HEIGHT/2 - (i*stepSize), WIDTH- (i*stepSize), HEIGHT/2); // right up
+            drawLines(graphics, WIDTH/2, HEIGHT/2 + (i*stepSize),i*stepSize, HEIGHT/2); //left bottom
+            drawLines(graphics, WIDTH/2, HEIGHT/2 + (i*stepSize), WIDTH - (i* stepSize), HEIGHT/2); //right bottom
         }
 
     }
