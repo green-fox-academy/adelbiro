@@ -6,25 +6,26 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class EnvelopeStar {
     public static void drawLines (Graphics graphics,  int x, int y, int xEnd, int yEnd) {
-        graphics.setColor(Color.MAGENTA);
+        graphics.setColor(new Color(200 + (int)(Math.random() * 55), (int) (Math.random() * 200),
+                150 + (int)(Math.random() * 55) ));
         graphics.drawLine(x, y, xEnd, yEnd);
     }
 
     public static void mainDraw(Graphics graphics) {
         int numberOfLines = 20;
-        int stepSize = WIDTH/2/20;
+        int stepSize = WIDTH/2/numberOfLines;
         for (int i = 1; i <= numberOfLines ; i++) {
             drawLines(graphics, WIDTH/2, HEIGHT/2 - (i*stepSize), (i*stepSize), HEIGHT/2); //left up
-            drawLines(graphics, WIDTH/2, HEIGHT/2 - (i*stepSize), WIDTH- (i*stepSize), HEIGHT/2); // right up
-            drawLines(graphics, WIDTH/2, HEIGHT/2 + (i*stepSize),i*stepSize, HEIGHT/2); //left bottom
+            drawLines(graphics, WIDTH/2, HEIGHT/2 - (i*stepSize), WIDTH - (i*stepSize), HEIGHT/2); // right up
+            drawLines(graphics, WIDTH/2, HEIGHT/2 + (i*stepSize), (i*stepSize), HEIGHT/2); //left bottom
             drawLines(graphics, WIDTH/2, HEIGHT/2 + (i*stepSize), WIDTH - (i* stepSize), HEIGHT/2); //right bottom
         }
 
     }
 
     // Don't touch the code below
-    static int WIDTH = 320;
-    static int HEIGHT = 320;
+    static int WIDTH = 640;
+    static int HEIGHT = 640;
 
     public static void main(String[] args) {
         JFrame jFrame = new JFrame("Drawing");
