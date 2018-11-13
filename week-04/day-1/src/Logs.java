@@ -16,13 +16,25 @@ public class Logs {
             List<String> logsList = Files.readAllLines(path);
             //    System.out.println(logsList);
             requestTypeRatio(logsList);
+            getUniqueIP(listToArray(logsList));
         } catch (IOException e) {
-
         }
-    //    getIP(path);
     }
-    //public static Array[] getIP(Path path) {
-    //}
+    public static String[] listToArray(List<String> list) {
+        String[] listAsArray = new String[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            listAsArray[i] = list.get(i);
+        }
+        return listAsArray;
+    }
+    public static void getUniqueIP(String[] arrayToCheck) {
+        int ipIndex = (arrayToCheck[0].indexOf("   ")) + 3;
+        int ipEnd = ipIndex + 11;
+        String[] ip = new String[arrayToCheck.length];
+        for (int i = 0; i < arrayToCheck.length; i++) {
+            ip[i] = arrayToCheck[i].substring(ipIndex, ipEnd);
+        }
+            }
     public static void requestTypeRatio(List<String> inputArray) {
         int get = 0;
         int post = 0;
