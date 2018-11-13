@@ -18,7 +18,6 @@ public class Main {
         counter.add();
         counter.add(4);
         counter.get();
-        counter.reset();
         counter.get();
     }
 }
