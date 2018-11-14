@@ -1,7 +1,6 @@
 package sharpieset;
 
 import sharpie.Sharpie;
-import sun.security.provider.SHA;
 
 import java.util.ArrayList;
 import java.util.List;
