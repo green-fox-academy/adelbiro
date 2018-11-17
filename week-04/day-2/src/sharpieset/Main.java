@@ -13,9 +13,15 @@ public class Main {
     mySharpieSet.listOfSharpies.add(pinkSharpie);
     mySharpieSet.listOfSharpies.add(orangeSharpie);
 
-    blueSharpie.use(100);
-    System.out.println(mySharpieSet.countUsable());
+    System.out.println("You have " + mySharpieSet.countUsable()  + " usable sharpies at the moment");
 
+    orangeSharpie.use(100);
+    System.out.println("You have " + mySharpieSet.countUsable()  + " usable sharpies at the moment");
+
+    blueSharpie.use(100);
+    System.out.println("You have " + mySharpieSet.countUsable()  + " usable sharpies at the moment");
+
+    System.out.println(mySharpieSet.listOfSharpies.size());
     mySharpieSet.removeTrash();
     System.out.println(mySharpieSet.listOfSharpies.size());
   }
