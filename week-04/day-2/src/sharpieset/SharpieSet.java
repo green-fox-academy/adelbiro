@@ -2,6 +2,7 @@ package sharpieset;
 
 import sharpie.Sharpie;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,11 +18,14 @@ public class SharpieSet {
     }
     return counter;
   }
+
   public void removeTrash() {
+    ArrayList<Sharpie> sharpiesToRemove = new ArrayList<>();
     for (Sharpie sharpie: listOfSharpies) {
       if (sharpie.inkAmount == 0) {
-        listOfSharpies.remove(sharpie);
-      } break;
+        sharpiesToRemove.add(sharpie);
+      }
     }
+    listOfSharpies.removeAll(sharpiesToRemove);
   }
 }
