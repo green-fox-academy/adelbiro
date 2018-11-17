@@ -7,10 +7,11 @@ public class SumDigit {
 
   public static int sumDigits(int number) {
     int sum = 0;
-    int mod = number%10;
+    int mod = number % 10;
     if (mod > 0) {
-      sum = sum + mod + sumDigits(number/10);
+      sum = sum + mod + sumDigits(number / 10);
     }
-  return sum;
+    return sum;
   }
+
 }
