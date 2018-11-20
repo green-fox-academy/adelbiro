@@ -1,17 +1,17 @@
 package gardenapplication;
 
-public class Flower {
-  String color;
-  double hydrationLevel;
-  double absorbCapacity;
-  boolean needWater;
+public class Flower extends Plant{
   public Flower(String color) {
     this.color = color;
-    hydrationLevel = 10;
+    hydrationLevel = 0;
     absorbCapacity = 0.75;
-    needWater = false;
   }
 
-
-
+  public boolean isNeedWater() {
+    if (hydrationLevel < 5) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
