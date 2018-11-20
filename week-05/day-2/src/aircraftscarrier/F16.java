@@ -1,7 +1,7 @@
 package aircraftscarrier;
 
 public class F16 extends Aircraft {
-  boolean queuePriority;
+  public boolean queuePriority;
   public F16() {
     maxAmmo = 8;
     queuePriority = true;

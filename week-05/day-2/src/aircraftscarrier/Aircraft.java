@@ -4,6 +4,7 @@ public class Aircraft {
   int maxAmmo;
   int baseDmg;
   int currentAmmo;
+  boolean queuePriority;
 
   public Aircraft() {
   }
@@ -25,16 +26,18 @@ public class Aircraft {
   }
 
   public String getStatus(Aircraft aircraft) {
-
-    return
+    String statusAsString = " Type " + getClass().getSimpleName() + ", Ammo: " + currentAmmo + ", Base Damage " + baseDmg + ",  All Damage: ";
+    return statusAsString;
   }
 
   public boolean isPriority(Aircraft aircraft) {
-    if (aircraft.getType(aircraft) == "F35") {
-      return true;
-    } else {
-      return false;
-    }
+//    if (aircraft.getType(aircraft) == "F35") {
+//      return true;
+//    } else {
+//      return false;
+//    }
+    return aircraft.queuePriority;
+
   }
 
 }
