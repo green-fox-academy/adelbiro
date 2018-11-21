@@ -4,6 +4,15 @@ public class Violin extends StringedInstrument {
   public Violin() {
     name = "Violin";
     numberOfStrings = 4;
-    sound = "Screech";
+  }
+
+  public Violin(int strings) {
+    this();
+    numberOfStrings = strings;
+  }
+
+  @Override
+  public String sound() {
+    return "Screech";
   }
 }
