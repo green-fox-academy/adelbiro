@@ -10,4 +10,12 @@ public class AtomicLong {
   public long increment() {
     return id++;
   }
+
+  public long getId() {
+    return id;
+  }
+
+  public String toString() {
+    return getId() + " times";
+  }
 }
