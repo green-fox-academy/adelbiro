@@ -1,15 +1,14 @@
 package com.greenfoxacademy.springstart.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class HelloRESTController {
 
   @RequestMapping (value = "/greeting")
   @ResponseBody
-  public Greeting greeting() {
-    return new Greeting(2, "Hello");
+  public Greeting greeting(@RequestParam() String name) {
+    Greeting greet = new Greeting(2, "Hello, " + name);
+    return greet;
   }
 }
