@@ -55,7 +55,7 @@ button[type="submit"]  {
       border:  0;
   }
 
-p[id="resetpassword"] {
+div.resetpassword  {
     font-size: 8pt;
     text-align: right;
 }
