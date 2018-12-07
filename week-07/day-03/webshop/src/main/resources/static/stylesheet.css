@@ -1,0 +1,38 @@
+body {
+    margin-left: 15%;
+    margin-right: 15%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header {
+    color: rgb(4, 189, 189);
+    font-size: 24pt;
+}
+
+form {
+
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+hr {
+
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+table {
+
+    padding-top: 1em;
+    border: 1px 1px;
+    border-color: rgb(255, 255, 255);
+    width: 100%;
+    text-align: center;
+}
+
+th {
+    background-color: rgb(22, 231, 231);
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Webshop</title>
+</head>
+<body>
+    <header>My Shop</header>
+    <hr/>
+    <div class="menubar">
+        <button type="menu">only available</button>
+        <button type="menu">cheapest first</button>
+        <button type="menu">contains nike</button>
+        <button type="menu">average stock</button>
+        <button type="menu">most expensive available</button>
+    </div>
+    <div id="search tool">
+        <form>
+            <div>
+                <label for="bar">Search for:</label><br/>
+                <input type="text" id="bar" placeholder="...something like nike">
+                <button id="searchbutton" type="button">Search</button>
+            </div>
+        </form>
+    </div>
+    <table id="content">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity of stock</th>
+        </tr>
+        <th:block th:each = "item : ${itemlist}">
+        <tr>
+            <td th:text="${item.getName()}"></td>
+            <td th:text="${item.getDescription()} "/></td>
+            <td th:text="${item.getPrice()} + ' Kč' "/></td>
+            <td th:text="${item.getQuantity()} "/></td>
+        </tr>
+        </th:block>
+    </table>
+
+</body>
+</html>
