@@ -4,8 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Controller
 public class Webshop {
@@ -21,27 +21,45 @@ public class Webshop {
     itemList.add(coke);
     itemList.add(printer);
     itemList.add(runningShoes);
+    itemList.add(new WebshopItem("something nike", "for testing purposes", 10, 12));
   }
 
   @RequestMapping("/")
   public String listStock(Model model) {
-    Webshop webshop = new Webshop();
-    model.addAttribute("itemlist", webshop.itemList);
+    model.addAttribute("itemlist", itemList);
     return "index";
   }
 
   @RequestMapping("/orderbyprice")
-  public String orderByPrice() {
+  public String orderByPrice(Model model) {
+    model.addAttribute("itemlist", itemList
+        .stream()
+        .sorted(Comparator.comparing(WebshopItem::getPrice))
+        .collect(Collectors.toList()));
     return "index";
   }
 
   @RequestMapping("/available")
-  public String listAvailableStock() {
+  public String listAvailableStock(Model model) {
+    List<WebshopItem> availableList = new ArrayList<>();
+    for (WebshopItem item : itemList) {
+      if (item.getQuantity() > 0) {
+        availableList.add(item);
+      }
+    }
+    model.addAttribute("itemlist", availableList);
     return "index";
   }
 
   @RequestMapping("/nike")
-  public String listNike() {
+  public String listNike(Model model) {
+    ArrayList<WebshopItem> nikeList = new ArrayList<>();
+    for (WebshopItem item : itemList) {
+      if (item.getDescription().toLowerCase().contains("nike") || item.getName().toLowerCase().contains("nike")) {
+        nikeList.add(item);
+      }
+    }
+    model.addAttribute("itemlist", nikeList);
     return "index";
   }
 
@@ -49,5 +67,4 @@ public class Webshop {
   public String listMostExpensiveAvailable() {
     return "index";
   }
-
 }
