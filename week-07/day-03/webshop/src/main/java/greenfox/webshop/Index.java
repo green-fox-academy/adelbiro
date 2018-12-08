@@ -58,8 +58,10 @@ public class Index {
   @RequestMapping("/mostexpensive")
   public String listMostExpensiveAvailable(Model model) {
     model.addAttribute("itemlist", itemList
-        .stream().sorted(Comparator.comparing(WebshopItem::getPrice).reversed())
-        .findFirst().get());
+        .stream()
+        .filter(WebshopItem -> WebshopItem.getQuantity() > 0)
+        .max(Comparator.comparing(WebshopItem::getPrice))
+        .get());
     return "index";
   }
   @RequestMapping("/averagestock")

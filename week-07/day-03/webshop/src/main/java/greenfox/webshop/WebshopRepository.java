@@ -9,7 +9,7 @@ public class WebshopRepository {
   public WebshopRepository() {
     WebshopItem coke = new WebshopItem("Coca cola", "0.5l standard coke", 25, 0);
     WebshopItem printer = new WebshopItem("Printer",
-        "Some HP printer that will print pages", 3000, 2);
+        "Some HP printer that will print pages", 3000, 0);
     WebshopItem runningShoes = new WebshopItem("Running shoes",
         "Nike running shoes for everyday sport", 1000, 5);
     itemList = new ArrayList<>();
