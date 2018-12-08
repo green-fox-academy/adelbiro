@@ -8,20 +8,12 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Controller
-public class Webshop {
+public class Index {
   List<WebshopItem> itemList;
 
-  public Webshop() {
-    WebshopItem coke = new WebshopItem("Coca cola", "0.5l standard coke", 25, 0);
-    WebshopItem printer = new WebshopItem("Printer",
-        "Some HP printer that will print pages", 3000, 2);
-    WebshopItem runningShoes = new WebshopItem("Running shoes",
-        "Nike running shoes for everyday sport", 1000, 5);
-    itemList = new ArrayList<>();
-    itemList.add(coke);
-    itemList.add(printer);
-    itemList.add(runningShoes);
-    itemList.add(new WebshopItem("something nike", "for testing purposes", 10, 12));
+  public Index() {
+    WebshopRepository webshop = new WebshopRepository();
+    itemList = webshop.getItemList();
   }
 
   @RequestMapping("/")
@@ -30,7 +22,7 @@ public class Webshop {
     return "index";
   }
 
-  @RequestMapping("/orderbyprice")
+  @RequestMapping("/cheapest-first")
   public String orderByPrice(Model model) {
     model.addAttribute("itemlist", itemList
         .stream()
@@ -39,7 +31,7 @@ public class Webshop {
     return "index";
   }
 
-  @RequestMapping("/available")
+  @RequestMapping("/only-available")
   public String listAvailableStock(Model model) {
     List<WebshopItem> availableList = new ArrayList<>();
     for (WebshopItem item : itemList) {
@@ -64,7 +56,20 @@ public class Webshop {
   }
 
   @RequestMapping("/mostexpensive")
-  public String listMostExpensiveAvailable() {
+  public String listMostExpensiveAvailable(Model model) {
+    model.addAttribute("itemlist", itemList
+        .stream().sorted(Comparator.comparing(WebshopItem::getPrice).reversed())
+        .findFirst().get());
     return "index";
+  }
+  @RequestMapping("/averagestock")
+  public String averageStock(Model model) {
+    double avg = 0;
+    for (WebshopItem item : itemList) {
+      avg += item.getQuantity();
+    }
+    avg = avg/itemList.size();
+    model.addAttribute("average", avg);
+    return "simple";
   }
 }

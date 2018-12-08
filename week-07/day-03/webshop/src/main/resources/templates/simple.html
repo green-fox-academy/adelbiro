@@ -36,23 +36,10 @@
         </div>
     </form>
 </div>
-<table id="content">
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Quantity of stock</th>
-    </tr>
-
-    <th:block th:each="item : ${itemlist}">
-        <tr>
-            <td th:text="${item.getName()}"></td>
-            <td th:text="${item.getDescription()} "/></td>
-            <td th:text="${item.getPrice()} + ' Kč' "/></td>
-            <td th:text="${item.getQuantity()} "/></td>
-        </tr>
+<div class="average">
+    <th:block>
+        <p th:text="'Average of stock: ' + ${average}"></p>
     </th:block>
-</table>
-
+</div>
 </body>
 </html>
