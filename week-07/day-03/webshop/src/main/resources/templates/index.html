@@ -43,7 +43,6 @@
         <th>Price</th>
         <th>Quantity of stock</th>
     </tr>
-
     <th:block th:each="item : ${itemlist}">
         <tr>
             <td th:text="${item.getName()}"></td>
@@ -53,6 +52,5 @@
         </tr>
     </th:block>
 </table>
-
 </body>
 </html>
