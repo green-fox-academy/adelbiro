@@ -23,5 +23,6 @@ public class BankAccount {
   public String getAnimalType() {
     return animalType;
   }
+
 }
 

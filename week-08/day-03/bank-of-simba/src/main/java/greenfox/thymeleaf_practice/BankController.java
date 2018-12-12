@@ -18,8 +18,6 @@ public class BankController {
     return "index";
   }
 
-
-
   @ModelAttribute
   public void addAttributes(Model model) {
     model.addAttribute("name", bankAccount.getName());
