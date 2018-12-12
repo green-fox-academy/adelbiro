@@ -18,11 +18,6 @@ public class BookController {
     books.add(new Book("Do Androids Dream of Electric Sheep?", "Philip K. Dick", 1968));
   }
 
-  @RequestMapping(path = "/books", method = RequestMethod.GET)
-  public String showBooks(Model model) {
-    model.addAttribute("books", books);
-    return "index";
-  }
 
   @RequestMapping(path = "/books/{id}/details", method = RequestMethod.GET)
   public String getBookById(Model model, @PathVariable(name="id") Integer id) {
