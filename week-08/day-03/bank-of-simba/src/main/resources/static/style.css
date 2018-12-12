@@ -1,0 +1,30 @@
+body{
+    background-color: bisque;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 20px;
+    font-family: Consolas;
+}
+
+.King {
+    color: red;
+    font-weight: bold;
+}
+
+table {
+    padding: 20px;
+    width: 800px;
+}
+
+tr {
+    width: auto;
+}
+
+thead {
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+ .balance{
+    text-align: right;
+}
