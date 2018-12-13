@@ -25,11 +25,11 @@ public class BankRegister {
   }
 
   public void incrementBalance(String accountName) {
-    convertName(accountName);
-    if (convertName(accountName).isKingBoolean()) {
-      convertName(accountName).setBalance(convertName(accountName).getBalance()+100);
+    BankAccount account = convertName(accountName);
+    if (account.isKingBoolean()) {
+      account.setBalance(account.getBalance()+100);
     } else {
-      convertName(accountName).setBalance(convertName(accountName).getBalance()+10);
+      account.setBalance(account.getBalance()+10);
     }
   }
 

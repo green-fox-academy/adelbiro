@@ -31,7 +31,8 @@ public class BankController {
     model.addAttribute("accountList", accountList.getAccountList());
     return "all";
   }
-  @PostMapping(value="/add-balance ", consumes= MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+
+  @PostMapping(value="/add-balance", consumes=MediaType.APPLICATION_FORM_URLENCODED_VALUE)
   public String giveThemZebras(@RequestBody MultiValueMap<String, String> formData) {
     accountList.incrementBalance(formData.toSingleValueMap().get("addThemZebra"));
     return "redirect:/show-all";
