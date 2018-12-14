@@ -9,14 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class UsefulController {
 
+  @Autowired
   UtilityService service;
 
-  @Autowired
-  public UsefulController(UtilityService service) {
-    this.service = service;
-  }
-
-  @RequestMapping (value = "/useful")
+  @RequestMapping ("/useful")
   public String showEveryUtility() {
     return "useful";
   }
@@ -27,11 +23,11 @@ public class UsefulController {
     return "coloredBg";
   }
 
+
   @RequestMapping ("/useful/email")
   public String emailValidator(Model model, @RequestParam() String email) {
-    String thisIsTheEmail = email;
     model.addAttribute("email", service.validateEmail(email));
-    model.addAttribute("theEmail", thisIsTheEmail);
+    model.addAttribute("theEmail", email);
     return "email";
   }
 

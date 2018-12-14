@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to the Fox Club!</title>
+</head>
+<body>
+<header>
+<a href="/info">Information</a>
+</header>
+
+<main>
+    <img src="foxes/sadfox.jpg">
+    <div th:object="${fox}">
+    <p th:text="'This is '+ *{getName()}  ' your fox . Currently living on ' + 'food' + '. He knows 0  tricks. He is sad because of that.'"></p>
+    <h1>Known tricks:</h1>
+    <ol>write HTML</ol>
+    <ol>code in Java</ol>
+    <ol>go party with a friend</ol>
+    <ol>be happy</ol>
+    </div>
+</main>
+</body>
+</html>
