@@ -35,5 +35,9 @@ public class UsefulController {
     return "email";
   }
 
-
+  @RequestMapping ("/caesar")
+  public String decode(Model model, @RequestParam() String text) {
+    model.addAttribute("input", service.caesar(text, text.length()));
+    return "caesar";
+  }
 }
