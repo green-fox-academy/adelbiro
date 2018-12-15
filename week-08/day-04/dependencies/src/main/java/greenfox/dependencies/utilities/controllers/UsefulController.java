@@ -1,5 +1,6 @@
-package greenfox.dependencies.utilities;
+package greenfox.dependencies.utilities.controllers;
 
+import greenfox.dependencies.utilities.services.UtilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +24,6 @@ public class UsefulController {
     return "coloredBg";
   }
 
-
   @RequestMapping ("/useful/email")
   public String emailValidator(Model model, @RequestParam() String email) {
     model.addAttribute("email", service.validateEmail(email));
@@ -31,9 +31,19 @@ public class UsefulController {
     return "email";
   }
 
-  @RequestMapping ("/caesar")
-  public String decode(Model model, @RequestParam() String text) {
-    model.addAttribute("input", service.caesar(text, text.length()));
+  @RequestMapping ("/useful/encode")
+  public String encode(Model model,
+                       @RequestParam(value = "text") String textToEncode,
+                       @RequestParam(value = "number") int number) {
+    model.addAttribute("input",service.caesar(textToEncode, number));
+    return "caesar";
+  }
+
+  @RequestMapping ("/useful/decode")
+  public String decode(Model model,
+                       @RequestParam(value = "text") String textToDecode,
+                       @RequestParam(value = "number") int number) {
+    model.addAttribute("input", service.caesar(textToDecode, number - 2));
     return "caesar";
   }
 }

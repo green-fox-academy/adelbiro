@@ -1,4 +1,4 @@
-package greenfox.dependencies.utilities;
+package greenfox.dependencies.utilities.services;
 
 import org.springframework.stereotype.Service;
 
