@@ -7,8 +7,6 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 @Controller
 public class BankController {
@@ -38,11 +36,13 @@ public class BankController {
     return "redirect:/show-all";
   }
 
-/*
-  @PostMapping (path="/add-account")
-  public String addAccount () {
-
+  @PostMapping (path="/add-account", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+  public String addAccount (@RequestBody MultiValueMap<String, String> accountData) {
+    accountList.addAccount(new BankAccount(
+                            accountData.toSingleValueMap().get("name"),
+                            Integer.parseInt(accountData.toSingleValueMap().get("balance")),
+                            accountData.toSingleValueMap().get("animalType")));
+    return "redirect:/show-all";
   }
-*/
-
 }
+

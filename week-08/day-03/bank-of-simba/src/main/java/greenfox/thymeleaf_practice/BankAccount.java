@@ -14,16 +14,15 @@ public class BankAccount {
     this.animalType = animalType;
     this.isKing = false;
     this.isGood = true;
-
   }
 
-  public BankAccount(String name, int balance, String animalType, boolean isKing) {
+  BankAccount(String name, int balance, String animalType, boolean isKing) {
     this(name, balance, animalType);
     this.isKing = isKing;
     this.isGood = true;
   }
 
-  public BankAccount(String name, int balance, String animalType, boolean isKing, boolean isGood) {
+  BankAccount(String name, int balance, String animalType, boolean isKing, boolean isGood) {
     this(name, balance, animalType);
     this.isKing = isKing;
     this.isGood = isGood;
