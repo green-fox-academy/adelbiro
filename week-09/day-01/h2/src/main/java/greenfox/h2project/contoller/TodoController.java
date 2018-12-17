@@ -1,5 +1,6 @@
 package greenfox.h2project.contoller;
 
+import greenfox.h2project.model.Todo;
 import greenfox.h2project.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,10 +22,11 @@ public class TodoController {
 
   @GetMapping (value = {"/", "/list"})
   public String list(Model model){
-    model.addAttribute("todos", repository.findAll());
+    this.repository.save(new Todo("learn this sht"));
+    this.repository.save(new Todo("print list elements"));
+    model.addAttribute("todos", this.repository.findAll());
     return "todolist";
   }
-
 
 
 }
