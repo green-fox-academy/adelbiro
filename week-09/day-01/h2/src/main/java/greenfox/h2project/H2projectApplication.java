@@ -21,6 +21,7 @@ public class H2projectApplication implements CommandLineRunner {
   public void run(String... args) throws Exception {
     repository.save(new Todo("learn ORM"));
     repository.save(new Todo("print list elements"));
+    repository.save(new Todo("mégvalami tennivaló"));
   }
 }
 

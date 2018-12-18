@@ -1,6 +1,5 @@
 package greenfox.mysql_connect.contoller;
 
-import greenfox.mysql_connect.repository.TodoRepository;
 import greenfox.mysql_connect.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,10 +19,19 @@ public class TodoController {
     this.service = service;
   }
 
+ /* @GetMapping (value = {"/", "/list"})
+  public String list(Model model){
+    model.addAttribute("todos", service.valami());
+    return "todolist";
+  }*/
+
   @GetMapping (value = {"/", "/list"})
   public String list(Model model, @RequestParam(value = "isActive", required = false) boolean isActive){
-    model.addAttribute("todos", service.findAll());
-    model.addAttribute("isActive", service.getActive());
+    if (isActive) {
+    model.addAttribute("todos", service.getActive());
+    } else {
+    model.addAttribute("todos", service.getAllTodos());
+    }
     return "todolist";
   }
 }

@@ -4,9 +4,9 @@ import greenfox.mysql_connect.model.Todo;
 import greenfox.mysql_connect.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TodoService {
@@ -19,14 +19,16 @@ public class TodoService {
   }
 
   public List<Todo> getAllTodos() {
-    list = new ArrayList<>();
-    repository.findAll()
-              .forEach(list::add);
+    this.list = new ArrayList<>();
+    repository.findAll().forEach(list::add);
     return list;
   }
 
-
-  public boolean getActive() {
-    if (list.stream().filter(Todo::isDone))
+  public List<Todo> getActive() {
+    this.list = getAllTodos()
+        .stream()
+        .filter(todo -> !todo.isDone())
+        .collect(Collectors.toList());
+    return list;
   }
 }
