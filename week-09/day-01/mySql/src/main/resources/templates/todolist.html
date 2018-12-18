@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
+<a href="/todo/add">Add new TODO</a>
 <h2>Todos for today:</h2>
 <table border="1">
     <thead>
@@ -14,6 +15,7 @@
         <td>ACTION</td>
         <td>URGENT</td>
         <td>DONE</td>
+        <td>TRASH IT</td>
     </tr>
     </thead>
     <tbody th:each="todo : ${todos}">
@@ -22,6 +24,7 @@
     <td th:text=" ${todo.title}"></td>
     <td th:text=" ${todo.urgent}"></td>
     <td th:text=" ${todo.done}"></td>
+    <td><button><a th:href="@{/todo/{id}/delete(id=${todo.id})}">Delete</a></button></td>
     </tr>
     </tbody>
 </table>
