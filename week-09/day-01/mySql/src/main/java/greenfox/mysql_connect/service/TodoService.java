@@ -31,4 +31,8 @@ public class TodoService {
         .collect(Collectors.toList());
     return list;
   }
+
+  public void add(Todo item) {
+    repository.save(item);
+  }
 }
