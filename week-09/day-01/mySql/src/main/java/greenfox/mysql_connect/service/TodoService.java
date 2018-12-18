@@ -39,4 +39,23 @@ public class TodoService {
   public void delete(long id) {
     repository.deleteById(id);
   }
+
+  public Todo getTodo(long id) {
+    return repository.findById(id).get();
+  }
+
+  public void editTodo(long id, String newTitle, boolean urgent, boolean done) {
+    if (newTitle != null) {
+      getTodo(id).setTitle(newTitle);
+      getTodo(id).setUrgent(urgent);
+      getTodo(id).setUrgent(done);
+
+      list.set(index, getTodo(id)))
+      add(Todo(newTitle, urgent, done));
+    }
+  }
+
+  public int searchIDFromList() {
+
+  }
 }

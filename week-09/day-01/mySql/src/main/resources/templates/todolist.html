@@ -21,10 +21,10 @@
     <tbody th:each="todo : ${todos}">
     <tr>
     <td th:text=" ${todo.id}"></td>
-    <td th:text=" ${todo.title}"></td>
+    <td><a th:href="@{/todo/{id}/edit(id=${todo.id})}" th:text=" ${todo.title}"></a></td>
     <td th:text=" ${todo.urgent}"></td>
     <td th:text=" ${todo.done}"></td>
-    <td><button><a th:href="@{/todo/{id}/delete(id=${todo.id})}">Delete</a></button></td>
+    <td><a th:href="@{/todo/{id}/delete(id=${todo.id})}">Delete</a></td>
     </tr>
     </tbody>
 </table>
