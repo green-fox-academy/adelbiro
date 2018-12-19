@@ -43,19 +43,15 @@ public class TodoService {
   public Todo getTodo(long id) {
     return repository.findById(id).get();
   }
+/* is this really not needed?
 
   public void editTodo(long id, String newTitle, boolean urgent, boolean done) {
     if (newTitle != null) {
       getTodo(id).setTitle(newTitle);
       getTodo(id).setUrgent(urgent);
       getTodo(id).setUrgent(done);
-
-      list.set(index, getTodo(id)))
-      add(Todo(newTitle, urgent, done));
     }
   }
+  */
 
-  public int searchIDFromList() {
-
-  }
 }
