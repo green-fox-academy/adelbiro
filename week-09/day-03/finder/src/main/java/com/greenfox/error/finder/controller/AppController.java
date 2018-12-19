@@ -27,9 +27,18 @@ public class AppController {
         return "index";
     }
 
+/*
     @PostMapping("/app")
-    public String create(@ModelAttribute(value = "user") User user) {
+    public String create(User user) {
         service.save(user);
         return "redirect:/app/";
+
+    }*/
+
+    @PostMapping("/app")
+    public String create(String firstName, String lastName) {
+        service.save(new User(firstName, lastName));
+        return "redirect:/app/";
+
     }
 }
