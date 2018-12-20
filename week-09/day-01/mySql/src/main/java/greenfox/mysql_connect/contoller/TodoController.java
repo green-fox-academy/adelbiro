@@ -1,5 +1,6 @@
 package greenfox.mysql_connect.contoller;
 
+import greenfox.mysql_connect.model.Assignee;
 import greenfox.mysql_connect.model.Todo;
 import greenfox.mysql_connect.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,9 +54,21 @@ public class TodoController {
   }
 
   @PostMapping (value = "/{id}/edit")
-  public String edit(@ModelAttribute Todo editedTodo) {
+  public String edit(@ModelAttribute Todo editedTodo, @PathVariable long id) {
     service.add(editedTodo);
     return "redirect:/todo/";
+  }
+
+  @GetMapping (value = "/search")
+  public String search(@RequestParam(value = "text", required = false) String text, Model model) {
+    model.addAttribute("todos", service.search(text));
+    return "todolist";
+  }
+
+  @GetMapping (value = "/assignees")
+  public String listAssignees(Model model) {
+    model.addAttribute("assigs", service.getAllAssignees());
+    return "assignees";
   }
 
 }
