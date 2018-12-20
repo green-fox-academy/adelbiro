@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Add new TODO</title>
+    <link href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"/>
 
 </head>
-<body>
+<body class="container-fluid">
 <form method="post" th:action="@{/todo/add}" th:object="${todo}">
+    <p>Specify what to do:</p>
     <input type="text" value="Add new todo" th:field="*{title}"><br/>
     <label for name="urgent">is it urgent?</label>
     <input name="urgent" type="checkbox" value="is it urgent?" th:field="*{urgent}"><br/>

@@ -2,20 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"/>
     <title>Edit item</title>
 </head>
-<body>
-<h1>You can edit your selected todo item here. If you want to edit an other item, go </h1><a href="/todo/list">back.</a>
-<p>Current status:</p><br/>
+<body class="container-fluid">
+<div  class="row">
+    <p>Edit this item, or go </p><a href="/todo/list">back.</a>
+</div><br/>
+<p>Current status:</p>
 <p th:text="${todo.id} + ': ' + ${todo.title} + ', urgent: '+ ${todo.urgent} + ', done: '+ ${todo.done}"></p>
-<p>Enter new values:</p><br/>
+<p>Add changes:</p>
 <form method="post" th:action="@{/todo/{id}/edit(id=${todo.id})}">
     <input type="text" value="Edit todo" th:field="${todo.title}"><br/>
     <label for name="urgent">urgent:</label>
     <input name="urgent" type="checkbox" value="is it urgent?" th:field="${todo.urgent}"><br/>
     <label for name="done">done:</label>
     <input name="done" type="checkbox" value="done" th:field="${todo.done}"><br/>
-    <input type="submit" value="Submit changes TODO">
+    <!--<label for name="assigni" value="Assignee" th:field="${todo.assignee.name}"></label>-->
+    <!--<input name="assigni" type="text" th:field="${todo.assignee.name}">-->
+    <input type="submit" value="Submit changes">
 </form>
 </body>
 </html>
