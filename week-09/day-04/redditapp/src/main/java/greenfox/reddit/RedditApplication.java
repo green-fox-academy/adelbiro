@@ -1,13 +1,13 @@
-package greenfox.reddit_clone;
+package greenfox.reddit;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RedditCloneApplication {
+public class RedditApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(RedditCloneApplication.class, args);
+    SpringApplication.run(RedditApplication.class, args);
   }
 
 }
