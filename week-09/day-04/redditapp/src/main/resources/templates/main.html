@@ -1,31 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>Main</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{styles.css}" type="text/css">
 </head>
+
 <body class="container-fluid">
-    <header>
-        <nav class="navbar-fixed-top navbar-dark bg-danger text-light">
-            <img src="reddit_logo.png" width="120pt">
-            <a class=" " href="/new">Submit new post</a>
-        </nav>
-    </header>
-    <main class="mx-auto">
-        <h2>Trending posts</h2>
-        <div>
-            <span>number</span>
-            <a href="">plusOne</a>
-            <a href="">minusOne</button>
-            <span>username</span>
-            <a href="">post title as link</a>
+
+<header>
+    <nav>
+        <a href="/">
+            <img class="reddit-logo"
+                 src="https://www.printplaygames.com/wp-content/uploads/2018/06/reddit-1-logo-png-transparent-300x97.png">
+        </a>
+        <a href="/add">Submit new post</a>
+        <div class="search">
+            <form class="form-check-inline" name="search" method="get" action="/search">
+                <input type="text" name="text" placeholder="look for something ...">
+                <button>Search</button>
+            </form>
         </div>
-    </main>
-    
-    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
-    <script src="/webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    </nav>
+</header>
+
+<main  class="text-lg-center">
+    <div>
+        <h2>Trending posts</h2>
+        <div class="line" th:each="post: ${posts}">
+            <div class="d-inline-block">
+                <span th:text="${post.scores}">number</span>
+                <a href="">up</a>
+                <a href="">down</a>
+                <p class="d-inline">username</p>
+                <a href=""><p class="d-inline-block" th:text="${post.title}">post title as link</p></a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </body>
 </html>

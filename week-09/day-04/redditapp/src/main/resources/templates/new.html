@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create post</title>
+    <link rel="stylesheet" th:href="@{styles.css}" type="text/css">
+    <link href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"/>
+
+</head>
+<body class="container-fluid">
+
+<header>
+    <nav>
+        <a href="/">
+            <img class="reddit-logo"
+                 src="https://www.printplaygames.com/wp-content/uploads/2018/06/reddit-1-logo-png-transparent-300x97.png">
+        </a>
+        <a href="/add">Submit new post</a>
+        <div class="search">
+            <form class="form-check-inline" name="search" method="get" action="/search">
+                <input type="text" name="text" placeholder="look for something ...">
+                <button>Search</button>
+            </form>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <form method="post" th:action="@{/add}" th:object="${post}">
+        <h3>Specify: </h3>
+        <label for="title">Title: </label>
+        <input type="text" id="title" required th:field="*{title}"><br/>
+
+        <label for="content">Content: </label>
+        <input type="text" id="content" th:field="*{postBody}"><br/>
+        <input type="submit" value="Publish">
+    </form>
+    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</main>
+</body>
+</html>

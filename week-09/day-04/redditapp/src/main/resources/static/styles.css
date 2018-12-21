@@ -1,0 +1,14 @@
+.reddit-logo {
+    width: 160px;
+    height: auto;
+}
+
+.search {
+    float: right;
+}
+
+.line {
+    margin-left: 40px;
+    margin-right: 40px;
+    padding: auto;
+}
