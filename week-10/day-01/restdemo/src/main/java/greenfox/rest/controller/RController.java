@@ -3,12 +3,10 @@ package greenfox.rest.controller;
 import greenfox.rest.model.Appended;
 import greenfox.rest.model.Doubled;
 import greenfox.rest.model.ErrorMessage;
+import greenfox.rest.model.Until;
 import greenfox.rest.service.Services;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class RController {
@@ -32,5 +30,10 @@ public class RController {
   @GetMapping("/appenda/{appendable}")
   public Appended appendA(@PathVariable(name = "appendable") String appendable) {
     return new Appended(appendable);
+  }
+
+  @PostMapping("/dountil/{action}")
+  public Object doUntil(@PathVariable(name = "action") String action, @RequestBody Until until) {
+    return service.action(action, until);
   }
 }
