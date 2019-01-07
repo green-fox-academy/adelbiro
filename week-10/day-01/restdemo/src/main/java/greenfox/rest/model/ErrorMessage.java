@@ -8,6 +8,10 @@ public class ErrorMessage {
     this.error = "Please provide an input!";
   }
 
+  public ErrorMessage(String error) {
+    this.error = error;
+  }
+
   public String getError() {
     return error;
   }
