@@ -2,6 +2,7 @@ package greenfox.rest.service;
 
 import greenfox.rest.model.ErrorMessage;
 import greenfox.rest.model.Greet;
+import greenfox.rest.model.Rosio;
 import greenfox.rest.model.Until;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +47,31 @@ public class Services {
     }
     until.setResult(result);
     return until;
+  }
+
+  public Object arrayHandling(Rosio rosio) {
+    if (rosio.getWhat().equals("sum")) {
+      return sumArrayElements(rosio);
+    } else if (rosio.getWhat().equals("multiply")) {
+      return multiplyArrayElements(rosio);
+    } else if (rosio.getWhat().equals("double")) {
+      return doubleArrayElements(rosio);
+    } else return new ErrorMessage("Please provide what to do with the numbers!");
+  }
+
+  private Object sumArrayElements(Rosio rosio) {
+    rosio.calculateSum();
+    return rosio.getResult();
+  }
+
+  private Object multiplyArrayElements(Rosio rosio) {
+    rosio.calculateMultiplication();
+    return rosio.getResult();
+  }
+
+  private Object doubleArrayElements(Rosio rosio) {
+    rosio.calculateDouble();
+    return rosio.getResult();
   }
 }
 

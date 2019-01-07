@@ -1,9 +1,6 @@
 package greenfox.rest.controller;
 
-import greenfox.rest.model.Appended;
-import greenfox.rest.model.Doubled;
-import greenfox.rest.model.ErrorMessage;
-import greenfox.rest.model.Until;
+import greenfox.rest.model.*;
 import greenfox.rest.service.Services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -35,5 +32,10 @@ public class RController {
   @PostMapping("/dountil/{action}")
   public Object doUntil(@PathVariable(name = "action") String action, @RequestBody Until until) {
     return service.action(action, until);
+  }
+
+  @PostMapping("/arrays")
+  public Object arraysHandler(@RequestBody Rosio arrayObject) {
+    return service.arrayHandling(arrayObject);
   }
 }
