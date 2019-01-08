@@ -33,6 +33,21 @@ public class GuardianControllerTest {
         .andExpect(status().isBadRequest())
         .andExpect(jsonPath("$.error", is("I am Groot!")));
   }
+
+  @Test
+  public void arrowSpeed_goodParams() throws Exception {
+    this.mockMvc.perform(get("/yondu?distance=100.0&time=10.0"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.distance", is(100.0)));
+  }
+
+  @Test
+  public void arrowSpeed_noParams() throws Exception {
+    this.mockMvc.perform(get("/yondu"))
+        .andExpect(status().isBadRequest())
+        .andExpect(jsonPath(
+            "$.error", is("You have to enter a distance and a time that are bigger than 0!")));
+  }
 }
 
 
