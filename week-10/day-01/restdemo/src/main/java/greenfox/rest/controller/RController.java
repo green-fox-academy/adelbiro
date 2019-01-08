@@ -16,9 +16,9 @@ public class RController {
   }
 
   @GetMapping("/doubling")
-  public Object doubling(@RequestParam(name="input", required=false) Integer inputNumber) {
+  public Object doubling(@RequestParam(name="input", required = false) Integer inputNumber) {
     if (inputNumber == null) {
-      return new ErrorMessage();
+      return new ErrorMessage("Please provide an input!");
     } else return new Doubled(inputNumber);
   }
 
@@ -40,6 +40,8 @@ public class RController {
 
   @PostMapping("/arrays")
   public Object arraysHandler(@RequestBody Rosio arrayObject) {
-    return service.arrayHandling(arrayObject);
+    if (arrayObject.getWhat() != null && arrayObject.getNumbers() != null) {
+      return service.arrayHandling(arrayObject);
+    } else return new ErrorMessage("Please provide what to do with the number!");
   }
 }

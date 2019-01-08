@@ -21,14 +21,19 @@ public class Rosio {
   }
 
   public void calculateMultiplication() {
-    int tempResult = 0;
+    int tempResult = 1;
+    for (int i = 0; i < numbers.length ; i++) {
+      tempResult = numbers[i] * tempResult;
+    }
+    this.result = tempResult;
   }
 
   public void calculateDouble() {
     int[] tempResult = new int[numbers.length];
     for (int i = 0; i < numbers.length; i++) {
-
+      tempResult[i] = numbers[i]*2;
     }
+    this.result = tempResult;
   }
 
   public String getWhat() {
