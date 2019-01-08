@@ -25,7 +25,10 @@ public class Rosio {
   }
 
   public void calculateDouble() {
-    int tempResult = 0;
+    int[] tempResult = new int[numbers.length];
+    for (int i = 0; i < numbers.length; i++) {
+
+    }
   }
 
   public String getWhat() {

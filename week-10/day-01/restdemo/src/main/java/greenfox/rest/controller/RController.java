@@ -8,8 +8,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class RController {
 
+  Services service;
+
   @Autowired
-  Services service = new Services();
+  public RController(Services service) {
+    this.service = service;
+  }
 
   @GetMapping("/doubling")
   public Object doubling(@RequestParam(name="input", required=false) Integer inputNumber) {
