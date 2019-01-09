@@ -4,10 +4,16 @@ import greenfox.rest.model.ErrorMessage;
 import greenfox.rest.model.Greet;
 import greenfox.rest.model.Rosio;
 import greenfox.rest.model.Until;
+import greenfox.rest.model.log.Log;
+import greenfox.rest.model.log.LogRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class Services {
+
+  @Autowired
+  private LogRepository repository;
 
   public Object greeting(String name, String title) {
     if (name != null & title != null) {
@@ -72,6 +78,14 @@ public class Services {
   private Object doubleArrayElements(Rosio rosio) {
     rosio.calculateDouble();
     return rosio.getResult();
+  }
+
+  public void createLog(Log log) {
+    repository.save(log);
+  }
+
+  public Iterable<Log> listAllLogs() {
+    return repository.findAll();
   }
 }
 

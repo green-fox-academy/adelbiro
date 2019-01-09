@@ -1,5 +1,7 @@
 package greenfox.rest.model;
 
+import java.util.Arrays;
+
 public class Rosio {
   private String what;
   private int[] numbers;
@@ -59,4 +61,10 @@ public class Rosio {
   public void setResult(Object result) {
     this.result = result;
   }
+
+  public String toString() {
+    return "what: " + what + ", numbers: " + Arrays.toString(numbers) + ", result: " + result.toString();
+  }
+
+
 }
