@@ -1,0 +1,27 @@
+package greenfox.springadvanced.service;
+
+import greenfox.springadvanced.model.Todo;
+import greenfox.springadvanced.repository.TodoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+public class TodoServiceImpl implements TodoService {
+
+
+  @Autowired
+  TodoRepository repository;
+
+  @Override
+  public void addTodo(Todo todo) {
+
+  }
+
+  @Override
+  public List<Todo> getTodos() {
+    return new ArrayList(repository.findAll());
+  }
+}
