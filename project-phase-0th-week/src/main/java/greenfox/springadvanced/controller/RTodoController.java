@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -14,8 +15,12 @@ import java.util.List;
 @RestController
 public class RTodoController {
 
-  @Autowired
   TodoServiceImpl service;
+
+  @Autowired
+  public RTodoController (TodoServiceImpl service) {
+    this.service = service;
+  }
 
   @GetMapping ("/api/")
   public ResponseEntity<List<Todo>> show() {
@@ -23,8 +28,8 @@ public class RTodoController {
   }
 
   @PostMapping("/api/")
-  public ResponseEntity save(Todo todo) {
+  public ResponseEntity save(@RequestBody Todo todo) {
     service.addTodo(todo);
-    return new ResponseEntity(HttpStatus.OK);
+    return new ResponseEntity(HttpStatus.CREATED);
   }
 }

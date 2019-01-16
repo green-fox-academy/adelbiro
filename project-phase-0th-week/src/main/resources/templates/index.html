@@ -9,9 +9,9 @@
 <header><h2>Welcome to your TODO managing page!</h2></header>
 <div>
 <p>Add new TODO:</p>
-    <form th:object="${todo}" method="post" action="/">
+    <form th:object="${todo}" method="post" th:action="@{/}">
         <label for="title">Title:</label>
-        <input type="text" th:field="*{title}" required />
+        <input type="text" th:field="*{title}"/>
 
         <input type="hidden" th:field="*{dateOfCreation}"/>
 
@@ -20,12 +20,11 @@
 </div>
 <div>
 <p>See your TODOS:</p>
-    <th:block>
-        <table th:object="todos">
+        <div th:object="${todos}" th:each="todo: ${todos}">
+                <span th:text="${todo.dateOfCreation}"></span>
+                <span th:text="${todo.title}"></span>
+        </div>
 
-        </table>
-
-    </th:block>
 </div>
 </body>
 </html>

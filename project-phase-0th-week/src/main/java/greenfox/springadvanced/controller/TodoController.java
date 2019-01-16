@@ -19,16 +19,17 @@ public class TodoController {
   }
 
   @GetMapping ("/")
-  public String showIndex() {
+  public String showIndex(Model model) {
+    model.addAttribute("todos", service.getTodos());
+    model.addAttribute("todo", new Todo());
   //authorization needed,  if ()
     return "index";
   }
 
   @PostMapping ("/")
-  public String addItem(Model model, Todo todo) {
+  public String addItem(Todo todo) {
     service.addTodo(todo);
     return "redirect:/";
   }
-
 
 }
