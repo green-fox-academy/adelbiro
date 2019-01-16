@@ -24,15 +24,26 @@ public class TodoAppSecurityConfig extends WebSecurityConfigurerAdapter {
         .and().csrf().disable();
   }
 
+  @Autowired
+  protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    auth
+        .inMemoryAuthentication()
+        .withUser("user").password("password").roles("USER");
+
+  }
+
+
   // with predefined users
   @Autowired
   public void configureInMemory(AuthenticationManagerBuilder auth) throws Exception {
     auth.inMemoryAuthentication()
-        .withUser("adel").password("secure").roles("USER");
+        .withUser("adel").password("{noop}secure").roles("USER");
+    //or:
+    // User.withDefaultPasswordEncoder().username("user").password("user").roles("USER").build();
   }
-/*
+
   // with a users table
-  @Autowired
+/*  @Autowired
   public void configureMySql(AuthenticationManagerBuilder auth, DataSource dataSource) throws Exception {
     auth.jdbcAuthentication().dataSource(dataSource)
         .usersByUsernameQuery("select username, password, 1 from users where username=?")
