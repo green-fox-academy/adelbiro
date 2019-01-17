@@ -4,10 +4,8 @@ import greenfox.springadvanced.model.JwtAuthenticationToken;
 import greenfox.springadvanced.model.JwtUser;
 import greenfox.springadvanced.model.JwtUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -40,10 +38,9 @@ public class JwtAuthenticationProvider extends AbstractUserDetailsAuthentication
     List<GrantedAuthority> grantedAuthorities = AuthorityUtils
         .commaSeparatedStringToAuthorityList(jwtUser.getRole());
 
-    new JwtUserDetails(jwtUser.getUsername(), jwtUser.getId(),
+    return new JwtUserDetails(jwtUser.getUsername(), jwtUser.getId(),
         token,
         grantedAuthorities);
-    return null;
   }
 
   @Override

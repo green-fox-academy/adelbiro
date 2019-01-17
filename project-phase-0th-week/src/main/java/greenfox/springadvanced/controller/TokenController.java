@@ -13,7 +13,7 @@ public class TokenController {
     this.jwtGenerator = jwtGenerator;
   }
 
-  @PostMapping("/{username}")
+  @PostMapping
   public String generate(@RequestBody final JwtUser jwtUser) {
     jwtGenerator = new JwtGenerator();
     return jwtGenerator.generate(jwtUser);
