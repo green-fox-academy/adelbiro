@@ -32,6 +32,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-security")
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     compile group: 'org.springframework.security', name: 'spring-security-jwt', version: '1.0.9.RELEASE'
-    
+    compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1' //0.7.0 in the demo 
+
 
 }
