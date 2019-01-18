@@ -8,4 +8,5 @@ public interface TodoService {
   void addTodo(Todo todo);
 
   List<Todo> getTodos();
+  public List<Todo> findTodosContaining(String text);
 }

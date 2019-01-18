@@ -25,4 +25,14 @@ public class TodoServiceImpl implements TodoService {
   public List<Todo> getTodos() {
     return new ArrayList(repository.findAll());
   }
+
+  public List<Todo> findTodosContaining(String text) {
+    return new ArrayList(repository.findTodosByTitleContaining(text));
+
+  }
+
+  public Todo findTodo(long id) {
+    return repository.findById(id);
+  }
+
 }

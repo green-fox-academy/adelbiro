@@ -35,6 +35,9 @@ public class RTodoController {
     return "Here is your token!";
   }
 
-
+  @GetMapping("/test/hello")
+  public String methodForTestcase() {
+    return "Test Completed";
+  }
 
 }

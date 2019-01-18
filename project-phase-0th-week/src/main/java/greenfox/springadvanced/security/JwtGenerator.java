@@ -15,6 +15,8 @@ public class JwtGenerator {
     claims.put("userId", String.valueOf(jwtUser.getId()));
     claims.put("role", jwtUser.getRole());
 
+
+    // this is the jts token itself; secret code should be environmental variable
     return Jwts.builder()
         .setClaims(claims)
         .signWith(SignatureAlgorithm.HS512, "secret")
