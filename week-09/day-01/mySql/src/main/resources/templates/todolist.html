@@ -7,15 +7,22 @@
     <link href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body class="container-fluid">
-<nav class="nav">
-<form name="searchbar" method="get" th:action="@{/todo/search}">
-    <input type="text" name="text" placeholder="look for something ...">
-    <button>Search</button>
-</form>
-<br/>
-<h4><a class="badge badge-primary" href="/todo/add" >Add new TODO</a></h4>
-    <div>
-        <a class="button btn-light" href="/todo/assignees"><p>List of assignees</p></a>
+<nav class=" navbar navbar-expand-md navbar-light navbar-fixed-top">
+    <div class="col-md-4 pull-left">
+    <form name="searchbar" method="get" th:action="@{/todo/search}">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="look for something ..." name="text" id="text">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit">Search</i></button>
+            </div>
+        </div>
+    </form>
+    </div>
+    <div class="col-md-4 pull-right">
+    <h4><a class="badge badge-primary" href="/todo/add">Add new TODO</a></h4>
+    <h4>
+        <a class="badge badge-outline-secondary" href="/todo/assignees"><p>List of assignees</p></a>
+    </h4>
     </div>
 </nav>
 <h2>Todos for today:</h2>
@@ -26,7 +33,7 @@
         <td>ACTION</td>
         <td>URGENT</td>
         <td>DONE</td>
-        <!--<td>ASSIGNEE</td>-->
+        <td>ASSIGNEE</td>
         <td>TRASH IT</td>
     </tr>
     </thead>
@@ -36,7 +43,7 @@
     <td><a th:href="@{/todo/{id}/edit(id=${todo.id})}" th:text=" ${todo.title}"></a></td>
     <td th:text=" ${todo.urgent}"></td>
     <td th:text=" ${todo.done}"></td>
-    <!--<td th:text=" ${todo.assignee.name}"></td>-->
+    <td th:text=" ${todo.assignee.getName()}"></td>
     <td><a th:href="@{/todo/{id}/delete(id=${todo.id})}">Delete</a></td>
     </tr>
     <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>

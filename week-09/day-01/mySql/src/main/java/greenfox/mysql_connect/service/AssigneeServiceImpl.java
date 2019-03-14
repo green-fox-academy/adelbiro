@@ -33,4 +33,14 @@ public class AssigneeServiceImpl implements AssigneeService {
     if (repository.existsById(assignee.getAssigneeId()))
     repository.save(assignee);
   }
+
+  @Override
+  public Assignee findAssignee(long id) {
+    return repository.findById(id).get();
+  }
+
+  @Override
+  public void delete(long id) {
+    repository.delete(findAssignee(id));
+  }
 }

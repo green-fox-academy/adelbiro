@@ -16,5 +16,6 @@ public interface TodoService {
 
   Todo findTodo(long id);
 
+  List<Todo> search(String text);
 }
 

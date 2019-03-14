@@ -11,9 +11,9 @@ public class Assignee {
   private String name;
   private String email;
 
-  Assignee () {}
+  public Assignee () {}
 
-  Assignee (String name, String email) {
+  public Assignee (String name, String email) {
     this.name = name;
     this.email = email;
   }

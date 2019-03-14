@@ -20,26 +20,38 @@ public class AssigneeController {
 
   @GetMapping(value = "/assignees")
   public String listAssignees(Model model) {
-    model.addAttribute("assigs", service.getAllAssignees());
+    model.addAttribute("assignees", service.getAllAssignees());
     return "assignees";
   }
 
-  @PostMapping (value = "/assignees")
+  @GetMapping (value = "/assignees/add")
+  public String assigneePage(Model model) {
+    model.addAttribute("assignee", new Assignee());
+    return "newassignee";
+  }
+
+  @PostMapping (value = "/assignees/add")
   public String saveAssignee(@ModelAttribute Assignee assignee) {
     service.addAssignee(assignee);
-    return"redirect:/assignees";
+    return "redirect:/todo/assignees";
   }
 
   @GetMapping (value = "/assignees/{id}")
-  public String editAssignee() {
-
-    return "/editassignees";
+  public String editAssignee(@PathVariable long id, Model model) {
+    model.addAttribute("assignee", service.findAssignee(id));
+    return "editassignee";
   }
 
 
   @PutMapping (value = "/assignees/{id}")
   public String editAssignee(@ModelAttribute Assignee assignee) {
     service.editAssignee(assignee);
+    return "assignees";
+  }
+
+  @DeleteMapping (value = "/assignees/{id}")
+  public String deleteAssignee(@PathVariable long id) {
+    service.delete(id);
     return "assignees";
   }
 }

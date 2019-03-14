@@ -49,7 +49,7 @@ public class TodoServiceImpl implements TodoService {
     return repository.findById(id).get();
   }
 
-  public Iterable<Todo> search(String title) {
+  public List<Todo> search(String title) {
     return repository.findAllByTitleContaining(title);
   }
 

@@ -8,28 +8,25 @@ public class Todo {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
   private String title;
-  boolean urgent;
-  boolean done;
-  String description;
-  String content;
+  private boolean urgent;
+  private boolean done;
+  private String description;
+  private String content;
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "assignee_id")
+  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+  @JoinColumn(name = "assigneeId")
   public Assignee assignee;
 
   public Todo(String title) {
     this.title = title;
     this.urgent = false;
     this.done = false;
-    this.assignee =  new Assignee("undefined", "email@ex");
   }
 
   public Todo(String title, boolean isUrgent) {
     this.title = title;
     this.urgent = isUrgent;
     this.done = false;
-
-
   }
 
   public Todo(String title, boolean isUrgent, boolean isDone) {
@@ -38,7 +35,8 @@ public class Todo {
     this.done = isDone;
   }
 
-  public Todo() {}
+  public Todo() {
+  }
 
   public long getId() {
     return id;

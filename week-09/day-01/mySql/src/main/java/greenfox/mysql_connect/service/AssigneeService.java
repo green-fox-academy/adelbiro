@@ -10,5 +10,9 @@ public interface AssigneeService {
   void addAssignee(Assignee assignee);
 
   void editAssignee(Assignee assignee);
+
+  Assignee findAssignee(long id);
+
+  void delete(long id);
 }
 
