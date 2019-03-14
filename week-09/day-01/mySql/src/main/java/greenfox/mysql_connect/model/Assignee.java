@@ -7,9 +7,9 @@ public class Assignee {
 
   @Id
   @GeneratedValue
-  int assignee_id;
-  String name;
-  String email;
+  private long assigneeId;
+  private String name;
+  private String email;
 
   Assignee () {}
 
@@ -32,5 +32,13 @@ public class Assignee {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public long getAssigneeId() {
+    return assigneeId;
+  }
+
+  public void setAssigneeId(long id) {
+    this.assigneeId = id;
   }
 }
