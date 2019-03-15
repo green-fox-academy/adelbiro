@@ -71,4 +71,10 @@ public class TodoController {
     return "todolist";
   }
 
+  @PutMapping (value = "/{id}")
+  public String markAsDOne(@PathVariable long id) {
+    service.markDone(id);
+    return "todolist";
+  }
+
 }

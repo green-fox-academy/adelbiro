@@ -12,7 +12,7 @@
 <p>Current status:</p>
 <p th:text="${todo.id} + ': ' + ${todo.title} + ', urgent: '+ ${todo.urgent} + ', done: '+ ${todo.done}"></p>
 <p>Add changes:</p>
-<form method="post" th:action="@{/todo/{id}/edit(id=${todo.id})}">
+<form method="put" th:action="@{/todo/{id}/edit(id=${todo.id})}">
     <input type="text" value="Edit todo" th:field="${todo.title}"><br/>
     <label for name="urgent">urgent:</label>
     <input name="urgent" type="checkbox" value="is it urgent?" th:field="${todo.urgent}"><br/>

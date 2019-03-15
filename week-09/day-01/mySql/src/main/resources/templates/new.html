@@ -13,12 +13,14 @@
     <label for name="urgent">is it urgent?</label>
     <input name="urgent" type="checkbox" value="is it urgent?" th:field="*{urgent}"><br/>
     <div>
+    <label for name="assignee">Select assignee, or add <a href="/todo/assignees/add">a new one</a></label><br/>
     <select name="assignee" th:value="Assignee" th:field="${todo.assignee}">
         <option th:each="assi:${allassignees}"
                 th:value="${assi.assigneeId}"
                 th:text="${assi.name}"></option>
     </select>
     </div>
+    <br/>
     <input type="submit" value="Add TODO">
 </form>
 

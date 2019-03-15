@@ -53,4 +53,9 @@ public class TodoServiceImpl implements TodoService {
     return repository.findAllByTitleContaining(title);
   }
 
+  @Override
+  public void markDone(long id) {
+    repository.findById(id).get().setDone(true);
+  }
+
 }

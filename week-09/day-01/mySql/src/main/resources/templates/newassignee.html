@@ -9,8 +9,10 @@
 <body>
 <form method="post" th:action="@{/todo/assignees/add}" th:object="${assignee}">
     <p>Add new assignee</p>
-    <input type="text" value="Name" th:field="*{name}"><br/>
-    <input type="text" value="Email:" th:field="*{email}"><br/>
+    <label for name="name">Name</label>
+    <input type="text" value="name" th:field="*{name}"><br/>
+    <label for name="email">E-mail:</label>
+    <input type="text" value="email" th:field="*{email}"><br/>
     <input type="submit" value="Add assignee">
 </form>
 </body>
