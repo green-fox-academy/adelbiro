@@ -56,10 +56,11 @@ public class TodoController {
   @GetMapping (value = "/{id}/edit")
   public String edit(@PathVariable long id, Model model) {
     model.addAttribute("todo", service.findTodo(id));
+    model.addAttribute("assignees", assigneeService.getAllAssignees());
     return "edit";
   }
 
-  @PutMapping (value = "/{id}/edit")
+  @PostMapping (value = "/{id}/edit")
   public String edit(@ModelAttribute Todo editedTodo, @PathVariable long id) {
     service.add(editedTodo);
     return "redirect:/todo/";
@@ -71,10 +72,10 @@ public class TodoController {
     return "todolist";
   }
 
-  @PutMapping (value = "/{id}")
-  public String markAsDOne(@PathVariable long id) {
+  @GetMapping (value = "/{id}")
+  public String markAsDone(@PathVariable long id) {
     service.markDone(id);
-    return "todolist";
+    return "redirect:/todo/";
   }
 
 }

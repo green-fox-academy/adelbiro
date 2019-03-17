@@ -46,7 +46,7 @@ public class TodoServiceImpl implements TodoService {
   }
 
   public Todo findTodo(long id) {
-    return repository.findById(id).get();
+    return repository.findById(id);
   }
 
   public List<Todo> search(String title) {
@@ -55,7 +55,13 @@ public class TodoServiceImpl implements TodoService {
 
   @Override
   public void markDone(long id) {
-    repository.findById(id).get().setDone(true);
+    Todo todo = repository.findById(id);
+    if (todo.isDone()) {
+      todo.setDone(false);
+    } else {
+      todo.setDone(true);
+    }
+    repository.save(todo);
   }
 
 }

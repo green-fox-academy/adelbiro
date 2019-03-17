@@ -42,7 +42,6 @@ public class AssigneeController {
     return "editassignee";
   }
 
-
   @PutMapping (value = "/assignees/{id}")
   public String editAssignee(@ModelAttribute Assignee assignee) {
     service.editAssignee(assignee);

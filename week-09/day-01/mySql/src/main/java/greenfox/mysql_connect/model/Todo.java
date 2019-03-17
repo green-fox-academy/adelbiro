@@ -13,7 +13,7 @@ public class Todo {
   private String description;
   private String content;
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.REFRESH, CascadeType.PERSIST})
   @JoinColumn(name = "assigneeId")
   public Assignee assignee;
 

@@ -7,19 +7,23 @@
 </head>
 <body class="container-fluid">
 <div  class="row">
-    <p>Edit this item, or go </p><a href="/todo/list">back.</a>
+    <p>Edit this item, or go </p><a href="/todo/list"> back.</a>
 </div><br/>
 <p>Current status:</p>
 <p th:text="${todo.id} + ': ' + ${todo.title} + ', urgent: '+ ${todo.urgent} + ', done: '+ ${todo.done}"></p>
 <p>Add changes:</p>
-<form method="put" th:action="@{/todo/{id}/edit(id=${todo.id})}">
+<form method="post" th:action="@{/todo/{id}/edit(id=${todo.id})}">
     <input type="text" value="Edit todo" th:field="${todo.title}"><br/>
     <label for name="urgent">urgent:</label>
     <input name="urgent" type="checkbox" value="is it urgent?" th:field="${todo.urgent}"><br/>
     <label for name="done">done:</label>
     <input name="done" type="checkbox" value="done" th:field="${todo.done}"><br/>
-    <label for name="assignee" value="Assignee" th:field="${todo.assignee.name}"></label>
-    <input name="assignee" type="text" th:field="${todo.assignee.name}">
+    <label for name="assignee" value="assignee" th:field="${todo.assignee.name}">Assignee:</label><br/>
+    <select name="assignee" th:value="assignee" th:field="${todo.assignee}">
+        <option th:each="assi:${assignees}"
+                th:value="${assi.assigneeId}"
+                th:text="${assi.name}"></option>
+    </select>
     <input type="submit" value="Submit changes">
 </form>
 </body>
